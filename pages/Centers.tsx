@@ -1,5 +1,5 @@
+import { Clock, MapPin, Phone } from 'lucide-react';
 import React from 'react';
-import { MapPin, Clock, Phone } from 'lucide-react';
 
 export const Centers: React.FC = () => {
   return (
@@ -62,18 +62,18 @@ export const Centers: React.FC = () => {
              <div className="h-48 bg-gray-200 relative">
                <img 
                  src="https://images.unsplash.com/photo-1570018144715-43110363d70a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" 
-                 alt="Centro Carraixet" 
+                 alt="Centro Carlet" 
                  className="w-full h-full object-cover"
                />
                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end">
-                 <h2 className="text-white font-bold text-2xl p-6">Carraixet</h2>
+                 <h2 className="text-white font-bold text-2xl p-6">Carlet</h2>
                </div>
              </div>
              <div className="p-6">
                <ul className="space-y-4">
                  <li className="flex items-start text-gray-600">
                    <MapPin className="w-6 h-6 text-green-700 mr-3 flex-shrink-0" />
-                   <span>Polígono Industrial, Calle 2, 46133 Meliana, Valencia</span>
+                   <span>Polígono Industrial Carlet, Valencia</span>
                  </li>
                  <li className="flex items-start text-gray-600">
                    <Clock className="w-6 h-6 text-green-700 mr-3 flex-shrink-0" />
