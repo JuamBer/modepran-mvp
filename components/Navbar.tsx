@@ -1,6 +1,6 @@
+import { Heart, Menu, X } from 'lucide-react';
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, Heart, Phone } from 'lucide-react';
 
 export const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -10,6 +10,7 @@ export const Navbar: React.FC = () => {
     { name: 'Inicio', path: '/' },
     { name: 'Adoptar', path: '/adopta' },
     { name: 'Nuestros Centros', path: '/centros' },
+    { name: 'Voluntariado', path: '/voluntariado' },
     { name: 'Contacto', path: '/contacto' },
   ];
 

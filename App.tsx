@@ -1,12 +1,13 @@
 import React from 'react';
-import { HashRouter, Routes, Route, Navigate } from 'react-router-dom';
-import { Navbar } from './components/Navbar';
+import { HashRouter, Navigate, Route, Routes } from 'react-router-dom';
 import { Footer } from './components/Footer';
-import { Home } from './pages/Home';
-import { Catalog } from './pages/Catalog';
+import { Navbar } from './components/Navbar';
 import { AnimalDetail } from './pages/AnimalDetail';
+import { Catalog } from './pages/Catalog';
 import { Centers } from './pages/Centers';
 import { Contact } from './pages/Contact';
+import { Home } from './pages/Home';
+import { Volunteer } from './pages/Volunteer';
 
 const App: React.FC = () => {
   return (
@@ -21,6 +22,7 @@ const App: React.FC = () => {
             <Route path="/adopta/:id" element={<AnimalDetail />} />
             <Route path="/centros" element={<Centers />} />
             <Route path="/contacto" element={<Contact />} />
+            <Route path="/voluntariado" element={<Volunteer />} />
             
             {/* Fallback routes */}
             <Route path="/donar" element={<Contact />} /> 
