@@ -140,44 +140,6 @@ export const MOCK_ANIMALS: Animal[] = [
     ],
   },
   {
-    id: "4",
-    name: "Nala",
-    species: "Perro",
-    breed: "Podenco",
-    age: 2,
-    ageText: "2 años",
-    sex: Sex.FEMALE,
-    size: Size.MEDIUM,
-    location: "Benimàmet",
-    status: AnimalStatus.RESERVED,
-    images: [
-      "https://images.unsplash.com/photo-1625316708582-7c38734c3121?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-    ],
-    description:
-      "Nala es tímida pero muy dulce. Se lleva bien con otros perros y necesita paciencia.",
-    medical: {
-      neutered: true,
-      microchipped: true,
-      vaccinated: true,
-      vaccines: [],
-      healthNotes: "Sana.",
-    },
-    timeline: [
-      {
-        date: "2023-10-05",
-        title: "Rescate",
-        description: "Encontrada en carretera.",
-        icon: "rescue",
-      },
-      {
-        date: "2023-10-20",
-        title: "Reservada",
-        description: "Una familia ha iniciado los trámites.",
-        icon: "heart",
-      },
-    ],
-  },
-  {
     id: "5",
     name: "Thor",
     species: "Perro",
@@ -251,51 +213,7 @@ export const MOCK_ANIMALS: Animal[] = [
       },
     ],
   },
-  {
-    id: "7",
-    name: "Lola",
-    species: "Perro",
-    breed: "Galgo Español",
-    age: 3,
-    ageText: "3 años",
-    sex: Sex.FEMALE,
-    size: Size.LARGE,
-    location: "Benimàmet",
-    status: AnimalStatus.ADOPTION,
-    images: [
-      "https://images.unsplash.com/photo-1610411880145-2342dfbb616a?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1522855590924-f7614d642340?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-    ],
-    description:
-      "Lola es pura elegancia y tranquilidad. Como buena galga, le encanta el sofá y correr en espacios cerrados. Es algo miedosa con hombres al principio.",
-    medical: {
-      neutered: true,
-      microchipped: true,
-      vaccinated: true,
-      vaccines: [{ name: "Rabia", date: "2023-07-01" }],
-      healthNotes: "Sana. Herida antigua en pata curada.",
-    },
-    timeline: [
-      {
-        date: "2023-07-01",
-        title: "Rescate",
-        description: "Rescatada de zona rural.",
-        icon: "rescue",
-      },
-      {
-        date: "2023-08-15",
-        title: "Casa de Acogida",
-        description: "Socialización en casa temporal.",
-        icon: "home",
-      },
-      {
-        date: "2023-10-01",
-        title: "Disponible",
-        description: "Lista para adopción definitiva.",
-        icon: "heart",
-      },
-    ],
-  },
+
   {
     id: "8",
     name: "Rocky",

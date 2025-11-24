@@ -2,8 +2,8 @@ import react from "@vitejs/plugin-react";
 import path from "path";
 import { defineConfig } from "vite";
 
-export default defineConfig({
-  base: "/modepran-mvp/",
+export default defineConfig(({ mode }) => ({
+  base: mode === "production" ? "/modepran-mvp/" : "/",
   server: {
     port: 3000,
     host: "0.0.0.0",
@@ -14,4 +14,4 @@ export default defineConfig({
       "@": path.resolve(__dirname, "."),
     },
   },
-});
+}));
