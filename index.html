@@ -1,16 +1,22 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Modepran - Adopta un Amigo</title>
-    <meta name="description" content="Protectora de Animales Modepran Valencia. Adopta, acoge o dona.">
-    
+    <meta
+      name="description"
+      content="Protectora de Animales Modepran Valencia. Adopta, acoge o dona."
+    />
+
     <!-- Google Fonts: Montserrat (Headings) & Open Sans (Body) -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-    
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Open+Sans:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -18,54 +24,58 @@
         theme: {
           extend: {
             fontFamily: {
-              sans: ['Open Sans', 'sans-serif'],
-              heading: ['Montserrat', 'sans-serif'],
+              sans: ["Open Sans", "sans-serif"],
+              heading: ["Montserrat", "sans-serif"],
             },
             colors: {
               green: {
-                50: '#f0fdf4',
-                100: '#dcfce7',
-                600: '#16a34a',
-                700: '#15803d',
-                800: '#166534',
+                50: "#f0fdf4",
+                100: "#dcfce7",
+                600: "#16a34a",
+                700: "#15803d",
+                800: "#166534",
               },
               orange: {
-                500: '#f97316',
-                600: '#ea580c',
-              }
+                500: "#f97316",
+                600: "#ea580c",
+              },
             },
             animation: {
-              'fade-in': 'fadeIn 0.5s ease-in-out',
+              "fade-in": "fadeIn 0.5s ease-in-out",
             },
             keyframes: {
               fadeIn: {
-                '0%': { opacity: '0', transform: 'translateY(10px)' },
-                '100%': { opacity: '1', transform: 'translateY(0)' },
-              }
-            }
-          }
+                "0%": { opacity: "0", transform: "translateY(10px)" },
+                "100%": { opacity: "1", transform: "translateY(0)" },
+              },
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        font-family: "Montserrat", sans-serif;
+      }
+    </style>
+    <script type="importmap">
+      {
+        "imports": {
+          "react/": "https://aistudiocdn.com/react@^19.2.0/",
+          "react": "https://aistudiocdn.com/react@^19.2.0",
+          "react-router-dom": "https://aistudiocdn.com/react-router-dom@^7.9.6",
+          "lucide-react": "https://aistudiocdn.com/lucide-react@^0.554.0",
+          "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/"
         }
       }
     </script>
-    <style>
-      h1, h2, h3, h4, h5, h6 {
-        font-family: 'Montserrat', sans-serif;
-      }
-    </style>
-<script type="importmap">
-{
-  "imports": {
-    "react/": "https://aistudiocdn.com/react@^19.2.0/",
-    "react": "https://aistudiocdn.com/react@^19.2.0",
-    "react-router-dom": "https://aistudiocdn.com/react-router-dom@^7.9.6",
-    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.554.0",
-    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
-    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.30.0"
-  }
-}
-</script>
-</head>
-<body>
+  </head>
+  <body>
     <div id="root"></div>
-</body>
+  </body>
 </html>

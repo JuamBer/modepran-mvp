@@ -1,12 +1,15 @@
-import React, { useEffect, useState } from 'react';
-import { useParams, Link, useNavigate } from 'react-router-dom';
-import { MOCK_ANIMALS } from '../constants';
-import { Timeline } from '../components/Timeline';
-import { generateAnimalStory, askAboutAnimal } from '../services/geminiService';
-import { 
-  MapPin, Share2, CheckCircle, XCircle, Info, Heart, 
-  Syringe, Sparkles, MessageCircle 
+import {
+  CheckCircle,
+  Heart,
+  Info,
+  MapPin, Share2,
+  Syringe,
+  XCircle
 } from 'lucide-react';
+import React, { useEffect, useState } from 'react';
+import { Link, useNavigate, useParams } from 'react-router-dom';
+import { Timeline } from '../components/Timeline';
+import { MOCK_ANIMALS } from '../constants';
 
 export const AnimalDetail: React.FC = () => {
   const { id } = useParams<{ id: string }>();
@@ -14,12 +17,6 @@ export const AnimalDetail: React.FC = () => {
   const animal = MOCK_ANIMALS.find(a => a.id === id);
 
   const [activeImage, setActiveImage] = useState(0);
-  const [aiStory, setAiStory] = useState<string>('');
-  const [loadingStory, setLoadingStory] = useState(false);
-  
-  const [chatInput, setChatInput] = useState('');
-  const [chatResponse, setChatResponse] = useState('');
-  const [loadingChat, setLoadingChat] = useState(false);
 
   useEffect(() => {
     if (!animal) {
@@ -29,16 +26,6 @@ export const AnimalDetail: React.FC = () => {
     
     // Scroll to top
     window.scrollTo(0, 0);
-
-    // Generate AI Story
-    const fetchStory = async () => {
-      setLoadingStory(true);
-      const story = await generateAnimalStory(animal);
-      setAiStory(story);
-      setLoadingStory(false);
-    };
-    fetchStory();
-
   }, [animal, navigate]);
 
   if (!animal) return null;
@@ -52,16 +39,7 @@ export const AnimalDetail: React.FC = () => {
     }
   };
 
-  const handleAskAI = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!chatInput.trim()) return;
-    
-    setLoadingChat(true);
-    const answer = await askAboutAnimal(animal, chatInput);
-    setChatResponse(answer);
-    setLoadingChat(false);
-    setChatInput('');
-  };
+
 
   return (
     <div className="bg-white min-h-screen pb-24 relative">
@@ -104,39 +82,7 @@ export const AnimalDetail: React.FC = () => {
               </div>
             )}
 
-            {/* Interactive AI Chat */}
-            <div className="mt-8 bg-green-50 rounded-2xl p-6 border border-green-100">
-              <div className="flex items-center gap-2 mb-4">
-                <Sparkles className="w-5 h-5 text-green-600" />
-                <h3 className="font-bold text-green-800">Pregunta a Modepran AI</h3>
-              </div>
-              
-              {chatResponse && (
-                 <div className="bg-white p-4 rounded-lg shadow-sm mb-4 text-gray-700 text-sm border-l-4 border-green-500 animate-fade-in">
-                   <p className="font-bold text-xs text-gray-400 mb-1">Respuesta:</p>
-                   {chatResponse}
-                 </div>
-              )}
 
-              <form onSubmit={handleAskAI} className="relative">
-                <input 
-                  type="text" 
-                  placeholder={`¿Cómo se lleva ${animal.name} con gatos?`}
-                  className="w-full pl-4 pr-12 py-3 rounded-xl border-gray-200 focus:ring-green-500 focus:border-green-500 shadow-sm text-sm"
-                  value={chatInput}
-                  onChange={(e) => setChatInput(e.target.value)}
-                  disabled={loadingChat}
-                />
-                <button 
-                  type="submit" 
-                  disabled={loadingChat}
-                  className="absolute right-2 top-1/2 -translate-y-1/2 p-1.5 bg-green-600 text-white rounded-lg hover:bg-green-700 disabled:opacity-50"
-                >
-                  {loadingChat ? <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" /> : <MessageCircle className="w-4 h-4" />}
-                </button>
-              </form>
-              <p className="text-xs text-green-600/70 mt-2 text-center">La IA responde basada en los datos de la ficha.</p>
-            </div>
           </div>
 
           {/* Right Column: Info, Medical, Timeline */}
@@ -177,19 +123,9 @@ export const AnimalDetail: React.FC = () => {
 
             {/* Description */}
             <div className="mb-8">
-              <h3 className="text-lg font-bold text-gray-900 mb-3">Su Historia</h3>
+              <h3 className="text-lg font-bold text-gray-900 mb-3">Descripción</h3>
               <div className="prose text-gray-600 leading-relaxed">
-                {loadingStory ? (
-                  <div className="animate-pulse space-y-2">
-                    <div className="h-4 bg-gray-200 rounded w-3/4"></div>
-                    <div className="h-4 bg-gray-200 rounded w-full"></div>
-                    <div className="h-4 bg-gray-200 rounded w-5/6"></div>
-                  </div>
-                ) : (
-                  <p className="italic border-l-4 border-orange-200 pl-4 bg-orange-50/50 py-2 rounded-r-lg">
-                    "{aiStory}"
-                  </p>
-                )}
+                <p>{animal.description}</p>
               </div>
             </div>
 
