@@ -1,11 +1,12 @@
+import { Facebook, Instagram, Mail, MapPin, Phone, Twitter, Youtube } from 'lucide-react';
 import React from 'react';
-import { Facebook, Instagram, Twitter, Mail, MapPin, Phone } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 export const Footer: React.FC = () => {
   return (
     <footer className="bg-gray-900 text-white pt-12 pb-8">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           
           {/* About */}
           <div>
@@ -14,10 +15,24 @@ export const Footer: React.FC = () => {
               Asociación protectora de animales en Valencia. Trabajamos incansablemente para dar una segunda oportunidad a los animales abandonados.
             </p>
             <div className="mt-6 flex space-x-4">
-              <a href="#" className="text-gray-400 hover:text-white transition"><Facebook className="h-5 w-5" /></a>
-              <a href="#" className="text-gray-400 hover:text-white transition"><Instagram className="h-5 w-5" /></a>
-              <a href="#" className="text-gray-400 hover:text-white transition"><Twitter className="h-5 w-5" /></a>
+              <a href="https://www.facebook.com/protectoramodepran" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition" aria-label="Facebook"><Facebook className="h-5 w-5" /></a>
+              <a href="https://www.instagram.com/protectoradeanimales_modepran/" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition" aria-label="Instagram"><Instagram className="h-5 w-5" /></a>
+              <a href="https://twitter.com/modepran" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition" aria-label="Twitter"><Twitter className="h-5 w-5" /></a>
+              <a href="https://www.youtube.com/channel/UCNFXpMeTcp9ayxbSK3oVWCQ" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition" aria-label="YouTube"><Youtube className="h-5 w-5" /></a>
             </div>
+          </div>
+
+          {/* Quick Links */}
+          <div>
+            <h3 className="text-xl font-bold mb-4 text-green-400">Enlaces</h3>
+            <ul className="space-y-2 text-gray-400 text-sm">
+              <li><Link to="/adopta" className="hover:text-white transition">Adoptar</Link></li>
+              <li><Link to="/teaming" className="hover:text-white transition">Teaming</Link></li>
+              <li><Link to="/voluntariado" className="hover:text-white transition">Voluntariado</Link></li>
+              <li><Link to="/blog" className="hover:text-white transition">Blog</Link></li>
+              <li><Link to="/centros" className="hover:text-white transition">Nuestros Centros</Link></li>
+              <li><Link to="/contacto" className="hover:text-white transition">Contacto</Link></li>
+            </ul>
           </div>
 
           {/* Contact */}

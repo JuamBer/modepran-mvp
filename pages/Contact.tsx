@@ -1,6 +1,6 @@
+import { Mail, MessageSquare, Phone, Send } from 'lucide-react';
 import React, { useState } from 'react';
-import { useLocation } from 'react-router-dom';
-import { Send, Phone, Mail, MessageSquare } from 'lucide-react';
+import { Link, useLocation } from 'react-router-dom';
 
 export const Contact: React.FC = () => {
   const location = useLocation();
@@ -81,20 +81,26 @@ export const Contact: React.FC = () => {
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">Nombre completo</label>
+                  <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">Nombre completo</label>
                   <input 
+                    id="name"
+                    name="name"
                     type="text" 
                     required
+                    aria-required="true"
                     className="w-full border-gray-300 rounded-lg shadow-sm focus:ring-green-500 focus:border-green-500 py-2 px-3 border"
                     value={formData.name}
                     onChange={(e) => setFormData({...formData, name: e.target.value})}
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                  <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">Email</label>
                   <input 
+                    id="email"
+                    name="email"
                     type="email" 
                     required
+                    aria-required="true"
                     className="w-full border-gray-300 rounded-lg shadow-sm focus:ring-green-500 focus:border-green-500 py-2 px-3 border"
                     value={formData.email}
                     onChange={(e) => setFormData({...formData, email: e.target.value})}
@@ -104,8 +110,10 @@ export const Contact: React.FC = () => {
 
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">Teléfono</label>
+                  <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1">Teléfono</label>
                   <input 
+                    id="phone"
+                    name="phone"
                     type="tel" 
                     className="w-full border-gray-300 rounded-lg shadow-sm focus:ring-green-500 focus:border-green-500 py-2 px-3 border"
                     value={formData.phone}
@@ -113,10 +121,13 @@ export const Contact: React.FC = () => {
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">Asunto</label>
+                  <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-1">Asunto</label>
                   <input 
+                    id="subject"
+                    name="subject"
                     type="text" 
                     required
+                    aria-required="true"
                     className="w-full border-gray-300 rounded-lg shadow-sm focus:ring-green-500 focus:border-green-500 py-2 px-3 border"
                     value={formData.subject}
                     onChange={(e) => setFormData({...formData, subject: e.target.value})}
@@ -125,10 +136,13 @@ export const Contact: React.FC = () => {
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">Mensaje</label>
+                <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">Mensaje</label>
                 <textarea 
+                  id="message"
+                  name="message"
                   rows={5}
                   required
+                  aria-required="true"
                   className="w-full border-gray-300 rounded-lg shadow-sm focus:ring-green-500 focus:border-green-500 py-2 px-3 border"
                   value={formData.message}
                   onChange={(e) => setFormData({...formData, message: e.target.value})}
@@ -154,6 +168,64 @@ export const Contact: React.FC = () => {
                 Enviar Mensaje
               </button>
             </form>
+          </div>
+        </div>
+
+        {/* Donation Section */}
+        <div className="mt-16 bg-gradient-to-r from-orange-500 to-orange-600 rounded-2xl overflow-hidden">
+          <div className="p-8 md:p-12 text-center text-white">
+            <h2 className="text-3xl font-bold mb-4">¿Quieres Hacer una Donación?</h2>
+            <p className="text-orange-100 mb-8 max-w-2xl mx-auto text-lg">
+              Tu apoyo económico nos ayuda a seguir rescatando y cuidando animales necesitados
+            </p>
+            
+            <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+              {/* Bank Transfer */}
+              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
+                <h3 className="text-xl font-bold mb-4">Transferencia Bancaria</h3>
+                <p className="text-orange-100 text-sm mb-4">
+                  Puedes realizar una transferencia directa a nuestra cuenta:
+                </p>
+                <div className="bg-white text-orange-700 p-4 rounded-lg font-mono text-lg font-bold break-all">
+                  ESXX XXXXXXXXXXXXX
+                </div>
+                <p className="text-orange-100 text-xs mt-3">
+                  Titular: Protectora de Animales Modepran
+                </p>
+              </div>
+
+              {/* PayPal */}
+              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
+                <h3 className="text-xl font-bold mb-4">PayPal</h3>
+                <p className="text-orange-100 text-sm mb-4">
+                  También puedes hacer tu donación mediante PayPal:
+                </p>
+                <a 
+                  href="https://www.paypal.com/donate/?hosted_button_id=YOUR_PAYPAL_ID" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="inline-block bg-white text-orange-600 px-6 py-3 rounded-lg font-bold hover:bg-gray-100 transition"
+                >
+                  Donar con PayPal
+                </a>
+                <p className="text-orange-100 text-xs mt-3">
+                  De forma rápida y segura
+                </p>
+              </div>
+            </div>
+
+            {/* Teaming Link */}
+            <div className="mt-8 pt-8 border-t border-white/20">
+              <p className="text-orange-100 mb-4">
+                ¿Prefieres donar solo <span className="font-bold text-white">1€ al mes</span>?
+              </p>
+              <Link 
+                to="/teaming"
+                className="inline-block bg-yellow-400 text-gray-900 px-8 py-3 rounded-full font-bold hover:bg-yellow-300 transition shadow-lg"
+              >
+                Únete a nuestro Teaming
+              </Link>
+            </div>
           </div>
         </div>
       </div>

@@ -1,8 +1,8 @@
-import React, { useState, useMemo } from 'react';
+import { Filter, SlidersHorizontal } from 'lucide-react';
+import React, { useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { MOCK_ANIMALS } from '../constants';
 import { AnimalStatus, Sex, Size } from '../types';
-import { Filter, SlidersHorizontal } from 'lucide-react';
 
 export const Catalog: React.FC = () => {
   const [filters, setFilters] = useState({
@@ -43,7 +43,7 @@ export const Catalog: React.FC = () => {
 
         <div className="flex flex-col lg:flex-row gap-8">
           {/* Sidebar Filters */}
-          <div className={`lg:w-64 flex-shrink-0 ${showMobileFilters ? 'block' : 'hidden lg:block'}`}>
+          <div className={`lg:w-64 flex-shrink-0 ${showMobileFilters ? 'block' : 'hidden lg:block'}`} id="filter-panel" role="search" aria-label="Filtros de búsqueda">
             <div className="bg-white p-6 rounded-lg shadow-sm sticky top-24">
               <div className="flex items-center justify-between mb-4">
                 <h2 className="text-lg font-semibold flex items-center gap-2">
@@ -118,11 +118,14 @@ export const Catalog: React.FC = () => {
 
                  {/* Age */}
                  <div>
-                  <h3 className="font-medium text-sm text-gray-700 mb-2">Edad</h3>
+                  <label htmlFor="age-filter" className="font-medium text-sm text-gray-700 mb-2 block">Edad</label>
                   <select 
+                    id="age-filter"
+                    name="age"
                     className="w-full border-gray-300 rounded-md text-sm focus:ring-green-500 focus:border-green-500"
                     value={filters.age}
                     onChange={(e) => handleFilterChange('age', e.target.value)}
+                    aria-label="Filtrar por edad"
                   >
                     <option value="">Cualquiera</option>
                     <option value="puppy">Cachorro (0-1 año)</option>
@@ -136,8 +139,11 @@ export const Catalog: React.FC = () => {
 
           {/* Mobile Filter Toggle */}
           <button 
-            className="lg:hidden flex items-center justify-center w-full bg-white p-3 rounded-lg shadow text-gray-700 font-medium mb-4"
+            className="lg:hidden flex items-center justify-center w-full bg-white p-3 rounded-lg shadow text-gray-700 font-medium mb-4 focus:outline-none focus:ring-2 focus:ring-green-500"
             onClick={() => setShowMobileFilters(!showMobileFilters)}
+            aria-expanded={showMobileFilters}
+            aria-controls="filter-panel"
+            aria-label={showMobileFilters ? 'Ocultar filtros' : 'Mostrar filtros'}
           >
             <SlidersHorizontal className="w-5 h-5 mr-2" /> {showMobileFilters ? 'Ocultar Filtros' : 'Mostrar Filtros'}
           </button>

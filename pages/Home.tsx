@@ -1,8 +1,8 @@
+import { ArrowRight, Heart } from 'lucide-react';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { MOCK_ANIMALS } from '../constants';
 import { AnimalStatus } from '../types';
-import { ArrowRight, Heart } from 'lucide-react';
 
 export const Home: React.FC = () => {
   const urgentAnimals = MOCK_ANIMALS.filter(a => a.status === AnimalStatus.URGENT || a.status === AnimalStatus.FOSTER).slice(0, 3);
@@ -29,11 +29,11 @@ export const Home: React.FC = () => {
               Miles de historias comienzan con un "Hola". Dales la oportunidad de tener un hogar y el amor que merecen.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <Link to="/adopta" className="inline-flex justify-center items-center px-8 py-4 border border-transparent text-lg font-bold rounded-full text-white bg-green-600 hover:bg-green-700 transition shadow-lg">
+              <Link to="/adopta" className="inline-flex justify-center items-center px-8 py-4 border border-transparent text-lg font-bold rounded-full text-white bg-green-600 hover:bg-green-700 transition shadow-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2" aria-label="Ver animales disponibles para adopción">
                 Adoptar ahora
               </Link>
-              <Link to="/donar" className="inline-flex justify-center items-center px-8 py-4 border-2 border-white text-lg font-bold rounded-full text-white hover:bg-white hover:text-green-700 transition">
-                Hacer Donación
+              <Link to="/teaming" className="inline-flex justify-center items-center px-8 py-4 border-2 border-white text-lg font-bold rounded-full text-white hover:bg-white hover:text-green-700 transition focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2" aria-label="Unirse al teaming con 1 euro al mes">
+                Únete a Teaming
               </Link>
             </div>
           </div>
@@ -80,6 +80,50 @@ export const Home: React.FC = () => {
             <Link to="/adopta" className="text-green-700 font-semibold hover:text-green-800">
               Ver todos los animales &rarr;
             </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Teaming/Sponsorship Section */}
+      <section className="py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="bg-gradient-to-r from-green-600 to-green-700 rounded-3xl overflow-hidden shadow-2xl">
+            <div className="grid md:grid-cols-2 gap-8 items-center">
+              <div className="p-8 md:p-12 text-white">
+                <h2 className="text-3xl md:text-4xl font-bold mb-4">¡Hazte Padrino de la Prote!</h2>
+                <p className="text-green-100 mb-6 text-lg leading-relaxed">
+                  Con solo <span className="font-bold text-yellow-300">1€ al mes</span>, formas parte de nuestra familia de teamers 
+                  que nos ayudan a alimentar, cuidar y dar una segunda oportunidad a cientos de animales.
+                </p>
+                <ul className="space-y-3 mb-8">
+                  <li className="flex items-center text-green-100">
+                    <Heart className="w-5 h-5 mr-3 text-yellow-300 flex-shrink-0" />
+                    <span>Más de 1.000 teamers ya nos apoyan</span>
+                  </li>
+                  <li className="flex items-center text-green-100">
+                    <Heart className="w-5 h-5 mr-3 text-yellow-300 flex-shrink-0" />
+                    <span>Sin permanencia ni compromisos</span>
+                  </li>
+                  <li className="flex items-center text-green-100">
+                    <Heart className="w-5 h-5 mr-3 text-yellow-300 flex-shrink-0" />
+                    <span>Transparencia total del dinero recaudado</span>
+                  </li>
+                </ul>
+                <Link 
+                  to="/teaming" 
+                  className="inline-block bg-yellow-400 text-gray-900 px-8 py-4 rounded-full font-bold text-lg hover:bg-yellow-300 transition shadow-lg"
+                >
+                  Únete a Teaming
+                </Link>
+              </div>
+              <div className="hidden md:block h-full">
+                <img 
+                  src="https://images.unsplash.com/photo-1450778869180-41d0601e046e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" 
+                  alt="Comunidad de teamers" 
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            </div>
           </div>
         </div>
       </section>

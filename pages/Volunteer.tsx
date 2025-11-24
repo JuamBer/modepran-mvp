@@ -52,8 +52,8 @@ export const Volunteer: React.FC = () => {
       <div className="relative h-[400px] flex items-center justify-center">
         <div className="absolute inset-0 overflow-hidden">
           <img 
-            src="https://images.unsplash.com/photo-1559827260-dc66d52bef19?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80" 
-            alt="Voluntarios con animales" 
+            src="https://images.unsplash.com/photo-1601758228041-f3b2795255f1?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80" 
+            alt="Voluntarios paseando perros" 
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-green-900/80 to-green-700/60"></div>
